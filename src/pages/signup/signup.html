@@ -1,0 +1,56 @@
+802.11 WiFi (wlp3s0)<ion-header>
+
+    <ion-navbar>
+        <ion-title>Registro de usuario</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div text-center class="margin-top-x margin-bottom-x">
+        <ion-img width="240" height="146" src="assets/imgs/westnet_brand_s.svg"></ion-img>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <ion-list>
+            <ion-item>
+                <ion-label stacked class="font-uppercase">Número de Cliente</ion-label>
+                <ion-input formControlName="customer_nro" type="number" placeholder="Número de Cliente"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked class="font-uppercase">Email</ion-label>
+                <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+            </ion-item>
+
+        </ion-list>
+        
+        <div class="button-padding">
+            <button ion-button block type="submit" [disabled]="!loginForm.valid" class="btn-gradient btn-icon-right">
+                Iniciar Sesión
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+        </div>
+
+        <ion-row>
+            <ion-col class="text-center">
+                <button ion-button clear small icon-end (click)="goToContactPage($event)" color="westnet-main-gray">
+                    No recuerdo mis datos
+                    <ion-icon name="share-alt"></ion-icon>                    
+                </button>
+            </ion-col>
+        </ion-row>        
+    </form>
+    <div class="button-padding">
+        <button ion-button block (click)="loginFacebook()" class="btn-facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+            Login con facebook
+        </button>
+        <button ion-button block (click)="loginGoogle()" class="btn-google">
+            <ion-icon name="logo-google"></ion-icon>
+            Login con Google
+        </button>
+    </div>
+
+</ion-content>

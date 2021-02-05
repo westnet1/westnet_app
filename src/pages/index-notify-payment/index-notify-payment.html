@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Informar pago </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item *ngIf="error || (accounts && accounts.length === 0)" class="no-results">
+    <ion-icon name="sad"></ion-icon>
+    <h5> La información solicitada no está disponible. Por favor intente nuevamente es unos instantes.</h5>
+  </ion-item>
+
+  <div *ngFor="let account of accounts">
+    <ion-card *ngIf="account['contracts'].length !== 0" style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%)">
+      <ion-card-header>
+        <ion-card-title class="text-center ios-title">
+          <ion-icon name="contact" style="zoom:1.5;"></ion-icon> <br>
+          <label text-wrap>{{account.customer_name}}</label>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="text-center" style="padding-bottom: 30px">
+        Código de Cliente: {{account.code}} <br>
+        Recuerde que sólo puede informar un pago cada mes <br>
+
+        <div *ngFor="let contract of account.contracts">
+          Servicio en: <label style="font-weight: bold"> {{contract['service_address']}} </label> <br>
+          <button *ngIf="account.can_notify_payment" ion-button class="btn-gradient" style="margin-top: 20px" (click)="notifyPayment(account.customer_code, contract.contract_id)"> Informar pago </button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

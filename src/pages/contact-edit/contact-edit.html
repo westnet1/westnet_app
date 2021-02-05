@@ -1,0 +1,78 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edición de datos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-item text-wrap>
+        Ingrese los datos que desee actualizar. <br>
+        Un representante actualizará los datos en nuestro sistema.
+    </ion-item>
+    <form [formGroup]="myForm" (ngSubmit)="sendNewData(myForm.value)">
+        <ion-item>
+            <ion-label stacked > Nombre completo: </ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <div style="color:red" *ngFor="let validation of validationMessages.name">
+          <p class="danger" *ngIf="myForm.get('name').hasError(validation.type)">{{validation.message}}</p>
+        </div>
+        <ion-item>
+            <ion-label stacked > DNI/CUIT: </ion-label>
+            <ion-input formControlName="document_number" type="text" maxlength="11" ></ion-input>
+          </ion-item>
+        <div style="color:red" *ngFor="let validation of validationMessages.document_number">
+          <p class="text-danger" *ngIf="myForm.get('document_number').hasError(validation.type)">{{validation.message}}</p>
+          </div>
+        <ion-item>
+            <ion-label stacked > Email: </ion-label>
+            <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked > Email Secundario: </ion-label>
+            <ion-input formControlName="email2" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked > Teléfono Fijo: </ion-label>
+            <ion-input formControlName="phone" type="text" maxlength="11"></ion-input>
+          </ion-item>
+        <div style="color:red" *ngFor="let validation of validationMessages.phone" >
+            <p *ngIf="myForm.get('phone').hasError(validation.type)" class="text-danger">{{validation.message}}</p>
+        </div>
+        <ion-item>
+            <ion-label stacked > Celular 1: </ion-label>
+            <ion-input formControlName="phone2" type="text" maxlength="11"></ion-input>
+          </ion-item>
+        <div style="color:red" *ngFor="let validation of validationMessages.phone2" >
+          <p *ngIf="myForm.get('phone2').hasError(validation.type)" class="text-danger">{{validation.message}}</p>
+        </div>
+        <ion-item>
+            <ion-label stacked > Celular 2: </ion-label>
+            <ion-input formControlName="phone3" type="text" maxlength="11"></ion-input>
+        </ion-item>
+        <div style="color:red" *ngFor="let validation of validationMessages.phone3" >
+          <p *ngIf="myForm.get('phone3').hasError(validation.type)" class="text-danger">{{validation.message}}</p>
+        </div>
+        <ion-item>
+            <ion-label stacked > Celular 3: </ion-label>
+            <ion-input formControlName="phone4" type="text" maxlength="11"></ion-input>
+         </ion-item>
+        <div style="color:red" *ngFor="let validation of validationMessages.phone4" >
+          <p *ngIf="myForm.get('phone4').hasError(validation.type)" class="text-danger">{{validation.message}}</p>
+        </div>
+        <ion-item hidden>
+            <ion-input formControlName="customer_code" type="number"></ion-input>
+        </ion-item>
+        <ion-item hidden>
+            <ion-input formControlName="type" type="text"></ion-input>
+        </ion-item>
+        <ion-item hidden>
+            <ion-input formControlName="document_type" type="text"></ion-input>
+        </ion-item>
+        <button ion-button block type="submit" class="btn-gradient" [disabled]="myForm.invalid">
+            Enviar
+        </button>
+    </form>
+</ion-content>

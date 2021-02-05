@@ -1,0 +1,26 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>Notificaciones</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div style="font-weight: bold" [innerHTML]="notification.notification_title"></div>
+    <br>
+    <div [innerHTML]="notification.resume"></div>
+    <br>
+    <div [innerHTML]="notification.notification_content"></div>
+</ion-content>
+
+<ion-footer>
+    <div *ngIf="notification.buttons" style="width: 90%; text-align: center; margin-left: 5%;margin-bottom: 5%">
+        <button *ngFor="let button of notification.buttons" style="margin-bottom: 5%;background: linear-gradient(135deg, #00a2d6 0%,#31a198 100%)" ion-button round block (click)="buttonAction($event, button.name)" >
+            {{button.label}}
+        </button>
+    </div>
+</ion-footer>

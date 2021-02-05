@@ -1,0 +1,39 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Validación</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+
+        <ion-item text-wrap>
+            Por favor ingrese el código que le enviamos y su número de documento:
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked class="font-uppercase">Código de Validación</ion-label>
+            <ion-input [(ngModel)]="validation_code" type="number" placeholder="Código de Validación"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked class="font-uppercase">DNI</ion-label>
+            <ion-input [(ngModel)]="document_number" type="number" placeholder="Número de documento"></ion-input>
+        </ion-item>        
+
+    </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-row>
+            <button ion-button block color="westnet-second-gray" (click)="setDocument()">Validar</button>
+            <button ion-button block color="westnet-second-gray" (click)="dismiss()">Cancelar</button>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

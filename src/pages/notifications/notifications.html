@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Notificaciones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let notification of notifications">
+    <ion-card [ngClass]="{'notification_new' : notification.notification_read == 0}" (click)="view($event, notification)">
+      <ion-card-header>
+        <!--<ion-row justify-content-between>-->
+          <!--<ion-col col-9>-->
+            <label style="font-weight: bold">
+              {{notification.title.length > 35 ? notification.title.substring(0,35) + '...' : notification.title}}
+            </label> <br>
+          <!--</ion-col>-->
+          <!--<ion-col col-3 style="text-align: center">-->
+
+            <!--<span style="font-size: smaller; font-weight: 100" item-right>-->
+              <!--<ion-icon name="ios-arrow-forward-outline"  style=" zoom:1.5" (click)="view($event, notification)"></ion-icon> <br>Ver detalles</span>-->
+          <!--</ion-col>-->
+        <!--</ion-row>-->
+
+        <!--<ion-icon name="ios-arrow-forward-outline"  style="float: right; zoom:1.5" (click)="view($event, notification)"></ion-icon>-->
+        <!--<label style="font-weight: bold">-->
+          <!--{{notification.title.length > 35 ? notification.title.substring(0,35) + '...' : notification.title}}-->
+
+          <!--<ion-icon item-right color="danger" name="radio-button-on" [ngClass]="{'hidden' : notification.notification_read == 1}"></ion-icon>-->
+        <!--</label> <br>-->
+      </ion-card-header>
+      <ion-card-content [ngClass]="{'content' : notification.notification_read == 0}" >
+        <ion-row justify-content-between>
+          <ion-col col-9>
+            <label>
+              {{notification.notificationResume.length > 100 ? notification.notificationResume.substring(0,100) + '...' : notification.notificationResume}}
+              <br>
+              {{notification.date}}
+            </label> <br>
+          </ion-col>
+          <ion-col col-3 style="text-align: center">
+
+            <span item-right>
+              <ion-icon name="ios-arrow-forward-outline"  style=" zoom:2" (click)="view($event, notification)"></ion-icon> <br>
+              <span style="font-size: smaller; font-weight: 100">Ver detalles</span>
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

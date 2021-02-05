@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contactanos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngFor="let contact of contacts">
+    <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%)">
+      <ion-card-header>
+        <ion-card-title class="text-center ios-title" style="color: white">
+          {{contact.name}}
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="text-center">
+        <div style="padding-bottom: 20px"  *ngFor="let phone of contact.phones">
+          <ion-icon *ngIf="phone.wp" name="logo-whatsapp" style="zoom:1.5; padding-right: 10px"></ion-icon>
+          <ion-icon *ngIf="!phone.wp" name="md-call" style="zoom:1.5; padding-right: 10px"></ion-icon>
+          <a style="text-decoration: none;font-size: 18px; ; color: black; font-weight: bold" href="{{getUrl(phone.phone, phone.wp)}}"> {{phone.phone}} </a>
+        </div>
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+</ion-content>

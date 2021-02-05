@@ -1,0 +1,7 @@
+{
+  "name": "westnet-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

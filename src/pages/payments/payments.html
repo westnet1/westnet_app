@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Mis pagos </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngIf="error || (accounts && accounts.length === 0)" class="no-results">
+    <ion-icon name="sad"></ion-icon>
+    <h5> La información solicitada no está disponible. Por favor intente nuevamente es unos instantes.</h5>
+  </ion-item>
+
+  <div *ngFor="let account of accounts">
+    <ion-card style="box-shadow: none">
+      <ion-card-header>
+        <ion-card-title class="text-center ios-title">
+          <ion-icon name="contact" style="zoom:1.5;"></ion-icon> <br>
+          <label text-wrap>{{account.customer_name}}</label>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="text-center" style="padding-bottom: 30px">
+        Código de Cliente: {{account.code}} <br>
+      </ion-card-content>
+    </ion-card>
+    <div *ngIf="account['payments'].length === 0">
+      <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%)">
+        <ion-card-content>
+          <h5 class="text-center"> Aún no ha registrado ningún pago.</h5>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+    <div *ngFor="let payment of account['payments']">
+      <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%)">
+        <ion-card-content>
+          <ion-icon icon-start name="ios-paper"></ion-icon>
+          <label style="font-weight: bold"> {{payment.date}} </label> <br>
+          Comprobante de pago número: {{payment.number}} <br>
+          Importe:  <label style="font-weight: bold"> ${{payment.total}} </label>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>

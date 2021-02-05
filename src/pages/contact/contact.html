@@ -1,0 +1,57 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Solicitar contacto</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <form [formGroup]="form" (ngSubmit)="sendQuery(form.value)">
+          <ion-item> 
+              <ion-label stacked>Nombre y Apellido</ion-label>
+              <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.get('name').errors && form.get('name').dirty && form.get('name').touched">
+              <p color="danger" ion-text *ngIf="form.get('name').hasError('required')">Campo obligatorio</p>
+              <p color="danger" ion-text *ngIf="form.get('name').hasError('minlength')">La longitud mínima debe ser de 4 carácteres.</p>
+              <p color="danger" ion-text *ngIf="form.get('name').hasError('maxlength')">La longitud máxima debe ser de inferior a 20 carácteres.</p>
+          </ion-item>
+  
+          <ion-item>
+              <ion-label stacked>DNI/CUIT (sin guiones)</ion-label>
+              <ion-input formControlName="document_number" type="number"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.get('document_number').errors && form.get('document_number').dirty && form.get('document_number').touched">
+              <p color="danger" ion-text *ngIf="form.get('document_number').hasError('required')">Campo obligatorio</p>
+              <p color="danger" ion-text *ngIf="form.get('document_number').hasError('minlength')">La longitud mínima debe ser de 8 carácteres.</p>
+              <p color="danger" ion-text *ngIf="form.get('document_number').hasError('maxlength')">La longitud mínima debe ser de 10 carácteres.</p>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Telefono de contacto</ion-label>
+            <ion-input formControlName="phone" type="number"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('phone').errors && form.get('phone').dirty && form.get('phone').touched">
+            <p color="danger" ion-text *ngIf="form.get('phone').hasError('required')">Campo obligatorio</p>
+            <!-- <p color="danger" ion-text *ngIf="form.get('phone').hasError('email')" t>Ingrese un email válido.</p> -->
+        </ion-item>
+          <ion-item>
+              <ion-label stacked>Email de Contacto</ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.get('email').errors && form.get('email').dirty && form.get('email').touched">
+              <p color="danger" ion-text *ngIf="form.get('email').hasError('required')">Campo obligatorio</p>
+              <p color="danger" ion-text *ngIf="form.get('email').hasError('email')" t>Ingrese un email válido.</p>
+          </ion-item>
+  
+  
+          <div padding>
+              <button ion-button block [disabled]="!form.valid" type="submit" style="margin-top: 20px;" class="btn-gradient btn-icon-right">
+                  Enviar Consulta
+                  <ion-icon name="arrow-dropright"></ion-icon>
+              </button>            
+          </div>
+      </form>
+  </ion-content>
+  

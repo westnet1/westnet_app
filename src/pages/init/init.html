@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bienvenido</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!--Estado de la cuenta-->
+    <!--Pantalla que muestre si la cuenta está al día o debe algun monto en el caso de estar al dia mostrar icono ok y "Su cuenta está al día", -->
+    <!--sino el monto que adeuda y listado de medios de pago-->
+    <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%);height: 25vh" (click)="showAccountStatus()">
+      <ion-card-header class="text-center">
+        <ion-card-title class="text-center ios-title2">
+          <ion-icon name="analytics" style="padding-bottom: 2vh; zoom:1.5;"></ion-icon> <br>
+          Estado de mi cuenta
+          <ion-icon name="ios-arrow-forward-outline"  style="float: right;"></ion-icon>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <!--Comprobantes-->
+    <!--Mostrar listado de comprobantes con opcion de envío de mail -->
+    <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%);height: 25vh" (click)="showBills()">
+      <ion-card-header class="text-center">
+        <ion-card-title class="text-center ios-title2">
+          <ion-icon name="ios-paper" style="padding-bottom: 2vh; zoom:1.5;"></ion-icon> <br>
+          Mis comprobantes
+          <ion-icon name="ios-arrow-forward-outline"  style="float: right; color: #444" ></ion-icon>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <!--Pagos-->
+    <!--Mostrar listado de pagos con opcion de envio a email-->
+    <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%);height: 25vh" (click)="showPayments()">
+      <ion-card-header class="text-center">
+        <ion-card-title class="text-center ios-title2">
+          <ion-icon name="filing" style="padding-bottom: 2vh; zoom:1.5"></ion-icon> <br>
+          Mis pagos
+          <ion-icon name="ios-arrow-forward-outline"  style="float: right" ></ion-icon>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+</ion-content>

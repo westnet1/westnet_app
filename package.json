@@ -1,0 +1,104 @@
+{
+  "name": "westnet-app",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "config": {
+    "ionic_purge_unused_fonts": false
+  },
+  "dependencies": {
+    "@angular/animations": "5.2.10",
+    "@angular/common": "5.2.10",
+    "@angular/compiler": "5.2.10",
+    "@angular/compiler-cli": "5.2.10",
+    "@angular/core": "5.2.10",
+    "@angular/forms": "5.2.10",
+    "@angular/http": "5.2.10",
+    "@angular/platform-browser": "5.2.10",
+    "@angular/platform-browser-dynamic": "5.2.10",
+    "@ionic-native/android-permissions": "^4.20.0",
+    "@ionic-native/badge": "^4.20.0",
+    "@ionic-native/base64-to-gallery": "^4.20.0",
+    "@ionic-native/camera": "^4.20.0",
+    "@ionic-native/core": "^4.20.0",
+    "@ionic-native/file-transfer": "^4.20.0",
+    "@ionic-native/google-plus": "^4.7.0",
+    "@ionic-native/image-picker": "^4.20.0",
+    "@ionic-native/in-app-browser": "^4.7.0",
+    "@ionic-native/native-storage": "^4.7.0",
+    "@ionic-native/onesignal": "^4.20.0",
+    "@ionic-native/splash-screen": "4.7.0",
+    "@ionic-native/status-bar": "4.7.0",
+    "@ionic/storage": "^2.1.3",
+    "android": "0.0.8",
+    "cordova-android": "8.1.0",
+    "cordova-base64-to-gallery": "^4.1.3",
+    "cordova-browser": "~5.0.3",
+    "cordova-ios": "5.1.1",
+    "cordova-plugin-android-permissions": "^1.0.2",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-camera": "^4.1.0",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-file-transfer": "^1.7.1",
+    "cordova-plugin-inappbrowser": "3.1.0",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^1.2.1",
+    "cordova-plugin-nativestorage": "^2.3.2",
+    "cordova-plugin-splashscreen": "^5.0.3",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-telerik-imagepicker": "^2.3.3",
+    "cordova-plugin-whitelist": "^1.3.4",
+    "ionic-angular": "3.9.2",
+    "ionicons": "3.0.0",
+    "onesignal-cordova-plugin": "2.7.0",
+    "rxjs": "^5.5.12",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "0.8.26"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.2.4",
+    "typescript": "~2.6.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-nativestorage": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-compat": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-file": {},
+      "cordova-base64-to-gallery": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+",
+        "NSCameraUsageDescription": "Se utiliza la cámara para permitir al usuario tomar foto de sus recibos de pagos"
+      },
+      "cordova-plugin-inappbrowser": {},
+      "onesignal-cordova-plugin": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-telerik-imagepicker": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Seleccionar imagenes para informar pagos"
+      },
+      "cordova-plugin-badge": {}
+    },
+    "platforms": [
+      "browser",
+      "ios",
+      "android"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Añadir Cliente</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+    <form [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+        <ion-list>
+            <ion-item text-wrap>
+                Ingrese un nuevo número de cliente para vincularlo en este dispositivo y poder consultar sus datos 
+            </ion-item>
+            <ion-item class="margin-list">
+                <ion-label stacked class="font-uppercase">Número de Cliente</ion-label>
+                <ion-input formControlName="code" type="number" placeholder="Número de Cliente"></ion-input>
+            </ion-item>
+        </ion-list>
+        <div padding>
+            <button ion-button block type="submit" [disabled]="!customerForm.valid" class="btn-gradient btn-icon-right">
+                Añadir Cliente
+                <ion-icon name="arrow-dropright"></ion-icon>
+            </button>
+
+        </div>
+    </form>
+
+</ion-content>

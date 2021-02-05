@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Lugares de Pago</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid *ngIf="places" no-padding>
+        <ion-row ion-item *ngIf="places.length == 0">
+            <ion-col text-wrap>
+                <ion-card>
+                    <ion-card-content>
+                        <ion-icon padding-right color="westnet-main-gray" name="pin"></ion-icon>
+                        <span>En todas las sucursales de Pago Fácil. Consulte aquí la mas cercana a su domicilio.</span>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <div class="text-center">
+                <button ion-button type="submit" class="btn-gradient btn-icon-right" (click)="viewPagoFacil()">
+                    Ver Sucursales
+                    <ion-icon name="arrow-dropright"></ion-icon>
+                </button>
+            </div>
+        </ion-row>
+        <span *ngIf="places_related.length > 0">
+            <ion-list-header color="westnet-second-gray" text-wrap>
+                <h4 class="text-uppercase">
+                    Cercanos a su domicilio
+                </h4>
+            </ion-list-header>
+            <ion-row ion-item *ngFor="let place of places_related">
+                <ion-col text-wrap>
+                    <ion-icon padding-right color="westnet-main-gray" name="pin"></ion-icon>
+                    {{place}}
+                </ion-col>
+            </ion-row>
+        </span>
+        <span *ngIf="places.length > 0">
+            <ion-list-header color="westnet-second-gray" text-wrap>
+                <h4 class="text-uppercase">
+                    Todos los lugares de pago
+                </h4>
+            </ion-list-header>
+            <ion-row ion-item *ngFor="let place of places">
+                <ion-col text-wrap>
+                    <ion-icon padding-right color="westnet-main-gray" name="pin"></ion-icon>
+                    {{place}}
+                </ion-col>
+            </ion-row>
+        </span>
+
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Informar pago </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-list>
+
+      <ion-item hidden>
+        <ion-input formControlName="customer" type="text" value={{customerId}}></ion-input>
+        <ion-input formControlName="contract" type="text" value={{contractId}}></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> Fecha del pago:</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" formControlName="date" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> Monto:</ion-label>
+        <ion-input formControlName="amount" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> Medio de pago:</ion-label>
+        <ion-select formControlName="payment_method_id" placeholder="Seleccione">
+          <ion-option *ngFor="let pmethod of pmethods" value="{{pmethod['payment_method_id']}}"> {{ pmethod['name'] }} </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> Foto del comprobante:</ion-label>
+        <ion-input hidden id="image_receipt" formControlName="image_receipt" type="text"></ion-input>
+      </ion-item>
+
+      <ion-row align-items-center>
+        <ion-col align-self-center>
+          <img [src]="image" *ngIf="image" />
+          <button ion-button block type="button" class="btn-gradient" (click)="getPicture()">Toma una foto</button>
+          <button ion-button block type="button" class="btn-gradient" (click)="selectImage()">Selecciona una foto</button>
+        </ion-col>
+      </ion-row>
+
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" class="btn-gradient" [disabled]="myForm.invalid">
+        Enviar
+      </button>
+    </div>
+  </form>
+</ion-content>

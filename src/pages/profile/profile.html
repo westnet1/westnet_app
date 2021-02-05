@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mi Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div *ngFor="let customer of customers">
+      <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%)">
+        <ion-card-header>
+          <ion-card-title class="text-center ios-title">
+            <ion-icon name="contact" style="zoom:1.5;"></ion-icon> <br>
+            <label text-wrap > {{customer.fullName}} </label>
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="text-center" style="padding-bottom: 30px">
+          DNI: {{customer.document_number}} <br>
+          Email: {{customer.email || customer.email2 || "No definido"}} <br>
+          Teléfono: {{customer.phone || customer.phone2 || customer.phone3 || "No definido"}} <br>
+          Código de Pago: {{customer.payment_code || "No definido"}} <br>
+          <button ion-button (click)="goContactEditData(customer)" class="btn-gradient btn-icon-right" style="margin-top: 20px">
+            Editar datos
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-grid>
+
+</ion-content>

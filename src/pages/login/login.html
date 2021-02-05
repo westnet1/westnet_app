@@ -1,0 +1,66 @@
+<ion-header>
+
+    <ion-navbar text-center>
+        <ion-title>Iniciar Sesión</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div text-center class="margin-top-x margin-bottom-x">
+        <ion-img width="240" height="146" src="assets/imgs/westnet_brand_s.svg"></ion-img>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <ion-list>
+
+            <ion-item>
+                <ion-label stacked class="font-uppercase">Número de Cliente</ion-label>
+                <ion-input formControlName="customer_nro" type="number" placeholder="Ingrese su número de cliente" [readonly]="customer_nro_defined"></ion-input>
+                <ion-icon name="close" *ngIf="customer_nro_defined"  item-right style="margin-top: 30px; z-index: 300; padding-left: 10px;" (click)="deleteCustomer()"></ion-icon>
+            </ion-item>
+
+            <ion-item *ngIf="loginForm.controls.type_document && loginForm.controls.type_document.value == 'DNI'">
+                <ion-label stacked class="font-uppercase">DNI</ion-label>
+                <ion-input formControlName="document_number" type="number" placeholder="Ingrese su documento"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="loginForm.controls.type_document && loginForm.controls.type_document.value == 'CUIT'">
+                <ion-label stacked class="font-uppercase">CUIT</ion-label>
+                <ion-input formControlName="document_number" type="tel" placeholder="Ingrese el número de CUIT"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+    </form>
+
+    <ion-row>
+        <ion-col class="text-center">
+            <button ion-button clear small icon-end (click)="goToContactPage()" color="westnet-main-gray">
+                No recuerdo mis datos 
+                <ion-icon name="share-alt"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
+
+    <!-- <ion-footer no-border> -->
+    <ion-toolbar padding position="bottom">
+        <button ion-button block *ngIf="customer_nro_defined" [disabled]="!loginForm.valid" (click)="loginUser()" class="btn-gradient btn-icon-right">
+            Iniciar Sesión
+            <ion-icon name="arrow-dropright"></ion-icon>
+        </button>
+        <button ion-button block *ngIf="!customer_nro_defined" (click)="checkUser()" class="btn-gradient btn-icon-right">
+            Continuar
+            <ion-icon name="arrow-dropright"></ion-icon>
+        </button>
+    </ion-toolbar>
+    <!-- </ion-footer> -->
+
+    <ion-row style="margin-top: 20px">
+        <ion-col class="text-center" style="color: #616163">
+            <h5>{{contact_info}}</h5>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

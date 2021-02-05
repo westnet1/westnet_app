@@ -1,0 +1,28 @@
+page-notifications {
+  .push-title {
+    font-size: 10pt;
+    font-weight: 100;
+  }
+
+  .new {
+    font-weight: bold;
+  }
+
+  .push-resume {
+    line-height: 1.5em;
+    height: 3em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .notification_new {
+    background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%);
+    .content {
+      font-weight: bold
+    }
+  }
+
+  .hidden{
+    display: none
+  }
+}

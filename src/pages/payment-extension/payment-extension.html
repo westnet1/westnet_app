@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Solicitar extensión de pago</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div *ngFor="let account of accounts">
+      <div *ngFor="let contract of account.contracts">
+        <ion-card style="background: linear-gradient(135deg, rgba(0,162,214,0.5) 0%, rgba(49,161,152,0.51) 100%)">
+          <ion-card-header>
+            <ion-card-title class="text-center ios-title">
+              <ion-icon name="contact" style="zoom:1.5;"></ion-icon> <br>
+              <label text-wrap>{{account.customer_name}}</label>
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content style="padding-bottom: 30px">
+            <div *ngIf="account.can_request_payment_extension == false">
+              Lo sentimos, no puede solicitar mas extensiones de pago este mes.
+            </div>
+
+            <div *ngIf="account.can_request_payment_extension == true" class="text-center">
+               Servicio en: <label style="font-weight: bold"> {{contract['service_address']}} </label>
+              <br> <br>
+              <label style="float:left">Precio por extensión de pago:</label> <label style="font-weight: bold; float: right"> ${{account.price}} </label><br>
+              <label style="float:left"> Extensión de pago válida hasta: </label><label style="font-weight: bold; float: right"> {{account.date_available_to}} </label><br>
+              <button ion-button class="btn-gradient" style="margin-top: 20px" (click)="confirmExtensionPayment(contract.contract_id)"> Solicitar extensión de pago</button>
+            </div>
+
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </ion-grid>
+
+</ion-content>
