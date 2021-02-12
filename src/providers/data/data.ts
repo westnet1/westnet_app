@@ -119,4 +119,8 @@ export class DataProvider {
     notificationViewed(mphua_id) {
         return this.http.post(CONFIG.apiUrl + "/notification/set-as-read", {"mphua_id": mphua_id})
     }
+
+    getNotification(mobile_push_id) {
+        return this.http.post(CONFIG.apiUrl + '/notification/view', {"mobile_push_id" : mobile_push_id});
+    }
 }

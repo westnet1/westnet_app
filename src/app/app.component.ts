@@ -115,8 +115,13 @@ export class MyApp {
         this.oneSignal.startInit(CONFIG.oneSignalAppID, CONFIG.senderIdFirebase);
         this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
         this.oneSignal.handleNotificationOpened().subscribe(result => {
+            console.log(result);
           if (result.notification.payload.additionalData) {
-            this.nav.push('NotificationViewPage', {notification: result.notification.payload.additionalData})
+              this.data.getNotification(result.notification.payload.additionalData.mobile_push_id).subscribe((data) => {
+                  console.log(data);
+                  this.nav.push('NotificationViewPage', {notification: data});
+
+              })
           }
         });
         this.oneSignal.endInit();
