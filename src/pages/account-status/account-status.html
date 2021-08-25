@@ -30,6 +30,9 @@
         <div *ngIf="account.balance <= 0">
           <label style="color: white; font-size: 20px; text-transform: uppercase; padding-top: 20px"> Saldo a pagar: </label>
           <label style="color: white; font-size: 20px; text-transform: uppercase; font-weight: bold"> ${{getPositiveNumber(account.balance)}} </label>
+          <div>
+	      <a ion-button href="http://portal.westnet.com.ar:3000/portal/payment-intention/{{account.hash_customer_id}}" target="_blank" class="btn-icon-right" style="margin-top: 20px;background-color:#ea345f;"><span><ion-icon name="logo-usd"></ion-icon> Botón de Pago </span></a>
+          </div>
         </div>
       </ion-card-content>
     </ion-card>
