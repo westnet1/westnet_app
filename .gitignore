@@ -1,0 +1,11 @@
+
+#generic ionic project ignore rules
+node_modules
+www
+.vscode
+*.DS_Store
+*.keystore
+*.sw*
+platforms/^.*
+.sourcemaps
+package-lock.json
