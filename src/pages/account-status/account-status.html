@@ -27,11 +27,12 @@
         Código de Cliente: {{account.code}} <br>
         Código de Pago: {{account.customer_payment_code}} <br>
         <ion-badge style="margin-top: 10px; margin-bottom: 10px" color="{{getBadgetColor(account.balance | number:'1.0-2')}}">{{getBadgetMessage(account.balance | number:'1.0-2')}}</ion-badge> <br>
-        <div *ngIf="account.balance <= 0">
+
+        <div *ngIf="account.balance < 0">
           <label style="color: white; font-size: 20px; text-transform: uppercase; padding-top: 20px"> Saldo a pagar: </label>
           <label style="color: white; font-size: 20px; text-transform: uppercase; font-weight: bold"> ${{getPositiveNumber(account.balance)}} </label>
           <div>
-	      <a ion-button href="http://portal.westnet.com.ar:3000/portal/payment-intention/{{account.hash_customer_id}}" target="_blank" class="btn-icon-right" style="margin-top: 20px;background-color:#ea345f;"><span><ion-icon name="logo-usd"></ion-icon> Botón de Pago </span></a>
+	          <a ion-button href="http://portal.westnet.com.ar:3000/portal/payment-intention/{{account.hash_customer_id}}" target="_blank" class="btn-icon-right" style="margin-top: 20px;background-color:#ea345f;"><span><ion-icon name="logo-usd"></ion-icon> Pagar </span></a>
           </div>
         </div>
       </ion-card-content>

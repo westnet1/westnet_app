@@ -1,7 +1,8 @@
 {
   "name": "westnet-app",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "ionic-angular"
 }
